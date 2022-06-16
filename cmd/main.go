@@ -4,24 +4,15 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"groupie-tracker/internal/delivery"
 )
 
-type Artist struct {
-	id           int
-	image        string
-	name         string
-	members      []string
-	creationDate int
-	firstAlbum   string
-	location     string
-	concertDates string
-	relations    string
-}
-
 func main() {
+	port := os.Getenv("PORT")
+
 	server := delivery.New()
-	fmt.Printf("Starting server at port :8080\nhttp://localhost:8080\n")
-	log.Fatal(http.ListenAndServe(":8080", server.Router()))
+	fmt.Printf("Starting server at port :%v \n", port)
+	log.Fatal(http.ListenAndServe(port, server.Router()))
 }
