@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="/template/style.css" /> -->
+    <title>{{ .Name }}</title>
+  </head>
+  <body>
+    <h1>{{ .Name }}</h1>
+    <h4>Members:</h4>
+    <ol>
+      {{range .Members }}
+      <li>{{ . }}</li>
+      {{end}}
+    </ol>
+    <h4>Creation date: {{ .CreationDate }}</h4>
+    <h4>First Album: {{.FirstAlbum}}</h4>
+    <h4>Locations:</h4>
+    <!-- <table>
+      <tbody>
+        <tr>
+          <td>
+            <ol>
+              {{range .Locations }}
+              <li>{{ . }}</li>
+              {{end}}
+            </ol>
+          </td>
+          <td>
+            <ol style="list-style: none">
+              {{range .ConcertDates }}
+              <li>{{ . }}</li>
+              {{end}}
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+    <ol>
+      {{range .Locations }}
+      <li>{{ . }}</li>
+      {{end}}
+    </ol>
+  </body>
+</html>

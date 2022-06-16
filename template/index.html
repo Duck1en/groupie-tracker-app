@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/template/style.css" />
+
+    <title>Groupie Tracker</title>
+  </head>
+  <body>
+    <section id="title">
+      <div class="container-fluid">
+        <!--Title-->
+        <h1 class="text-center">Groupie-Tracker</h1>
+      </div>
+    </section>
+    <!--gallery-->
+    <section id="masonry">
+      <!--Masonry-->
+      <form action="/artist" method="get">
+        <div class="row" style="justify-content: center">
+          {{range . }}
+          <div class="col-xl-auto col-lg-auto col-md-auto col-sm-auto mb-3">
+            <div class="card">
+              <img
+                src="{{ .Image }}"
+                class="card-img-top"
+                width="100%"
+                height="200"
+                alt="Imgae_Group"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ .Name }}</h5>
+                <p class="card-footer">
+                  Creation Date: {{ .CreationDate }} <br />
+                  First Album: {{ .FirstAlbum}}
+                </p>
+                <button
+                  class="btn btn-outline-success"
+                  value="{{.Id}}"
+                  name="button"
+                  type="submit"
+                >
+                  More Info
+                </button>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </form>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+      async
+    ></script>
+  </body>
+</html>
