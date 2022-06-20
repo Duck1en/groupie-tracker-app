@@ -12,6 +12,11 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 
+	if port == "" {
+		fmt.Print("Enter port :")
+		fmt.Fscan(os.Stdin, &port)
+	}
+
 	server := delivery.New()
 	fmt.Printf("Starting server at port :%v \n", port)
 	log.Fatal(http.ListenAndServe(":"+port, server.Router()))
