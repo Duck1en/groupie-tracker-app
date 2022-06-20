@@ -14,6 +14,5 @@ func main() {
 
 	server := delivery.New()
 	fmt.Printf("Starting server at port :%v \n", port)
-	log.Fatal(http.ListenAndServe(port, nil))
 	log.Fatal(http.ListenAndServe(":"+port, server.Router()))
 }
