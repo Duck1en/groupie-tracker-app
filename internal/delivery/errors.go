@@ -19,7 +19,7 @@ var MainTmpl, ErrTmpl, ArtistTmpl *template.Template
 
 func ErrorCheck(err error) {
 	if err != nil {
-		log.Fatal(err.Error())
+		log.Fatal("Template not found")
 	}
 }
 

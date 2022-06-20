@@ -26,7 +26,8 @@ func (s *Server) Router() *http.ServeMux {
 	s.mux.HandleFunc("/", HomePage)
 	s.mux.HandleFunc("/artist", ArtistPage)
 	s.mux.Handle("/template/", http.StripPrefix("/template/", http.FileServer(http.Dir("./template/"))))
-	s.mux.Handle("/template/images/", http.StripPrefix("/template/images/", http.FileServer(http.Dir("./template/images/"))))
+	s.mux.Handle("/template/assets/", http.StripPrefix("/template/assets/", http.FileServer(http.Dir("./template/assets/"))))
+	// s.mux.Handle("/template/map/", http.StripPrefix("/template/map/", http.FileServer(http.Dir("./template/map/"))))
 	return s.mux
 }
 

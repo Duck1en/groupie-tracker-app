@@ -1,6 +1,9 @@
 #title {
-  background-color: #2c2e44;
+  background-color: #72858c;
   color: #fff;
+  background-color: #72858c;
+  padding: 1% 10%;
+  justify-content: center;
 }
 
 h1 {
@@ -13,6 +16,7 @@ h2 {
   font-size: 3rem;
   text-align: center;
   padding: 2%;
+  color: #fff;
 }
 .container-fluid {
   padding: 1% 15%;
@@ -20,10 +24,6 @@ h2 {
 
 blockquote {
   font-style: italic;
-}
-#masonry {
-  padding: 1% 10%;
-  justify-content: center;
 }
 
 #input {
@@ -48,4 +48,20 @@ blockquote {
   box-shadow: none;
 }
 
+/* .card-parent-inner {
+  height: 480px;
+} */
+
+.group_img {
+  max-width: 100%;
+}
+
 /* ARTISTS */
+.body_artist {
+  background-color: #72858c;
+}
+
+.map {
+  width: 800px;
+  height: 800px;
+}
