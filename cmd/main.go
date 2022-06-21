@@ -17,7 +17,7 @@ func main() {
 	server := delivery.New()
 
 	if port == "" {
-		fmt.Print("Enter port :")
+		fmt.Print("Enter port: ")
 		ch := make(chan int)
 
 		go func() {
@@ -31,16 +31,16 @@ func main() {
 				log.Fatal("PORT is NULL or string")
 			}
 
-			fmt.Printf("Starting server at port :%v \n", port)
+			fmt.Printf("Starting server at port http://localhost:%v \n", port)
 			log.Fatal(http.ListenAndServe(":"+port, server.Router()))
 			os.Exit(0)
 
-		case <-time.After(5 * time.Second):
+		case <-time.After(10 * time.Second):
 			log.Fatal("Time out")
 		}
 
 	} else {
-		fmt.Printf("Starting server at port :%v \n", port)
+		fmt.Printf("Starting server at port http://localhost:%v \n", port)
 		log.Fatal(http.ListenAndServe(":"+port, server.Router()))
 		os.Exit(0)
 	}
