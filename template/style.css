@@ -1,3 +1,7 @@
+body {
+  background-color: #72858c;
+}
+
 #title {
   color: #fff;
   padding: 1% 10%;
@@ -46,20 +50,34 @@ blockquote {
   box-shadow: none;
 }
 
-/* .card-parent-inner {
-  height: 480px;
-} */
+.group_row {
+  justify-content: center;
+  margin: 0 -40px
+}
+
+.card-parent {
+  width: auto; 
+  flex: 0 0 auto;
+}
 
 .group_img {
-  max-width: 100%;
+  height: 322px;
+  width: 322px;
 }
+
 
 /* ARTISTS */
-.body_artist {
-  background-color: #72858c;
+.group_card {
+  border-radius: .5rem; 
+  background-color: #fefefe;
 }
 
-.map {
-  width: 800px;
-  height: 800px;
+.group_logo {
+  width: 100%;
+  padding: 35px;
+}
+
+.group_logo_parent {
+  border-top-left-radius: .5rem; 
+  border-bottom-left-radius: .5rem;
 }
