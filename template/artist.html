@@ -12,70 +12,71 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/template/style.css"/>
     <!-- <script src="https://api-maps.yandex.ru/2.1/?apikey=68a86058-3838-4f4e-85f7-b68b5af80c7f&lang=ru_RU" type="text/javascript"></script>
     <script src="/template/map/script.js" type="text/javascript"></script> -->
-    <link rel="stylesheet" href="/template/style.css"/>
+    
     <title>Groupie Tracker | {{ .Name }}</title>
   </head>
-
-  <body class="body_artist vh-150" style="background-color: #72858c;">
-      <div class="container py-5 h-120">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col col-lg-10 mb-4 mb-lg-0">
-            <div class="group-card-title d-flex align-items-center justify-content-between">
-              <a class="navbar-brand" href="/">
-                <img
-                  src="/template/assets/arrow.png"
-                  alt="go_back"
-                  width="40"
-                  height="40"
-                  class="d-inline-block align-text-top"
-                />
-              </a>
-              <!-- <h2 class="group_name text-white"></h2> -->
-              <h2 class="group_name display-2 text-white text-center"><strong>{{ .Name }}</strong></h2>
-              <div width="10"></div>
-            </div>
-            <div class="card mb-3 " style="border-radius: .5rem; background-color: #fff;">
-              <div class="row g-0">
-                <div class="col-md-4 gradient-custom text-center text-white "
-                  style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                  <img src="{{ .Image }}"
-                    alt="Avatar" class="img-fluid my-5" style="width: 250px;" />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body p-4">
-                    <h3>Members:</h3>
-                    <hr class="mt-0 mb-2">
-                    <div class="row pt-1">
-                      <ol>
-                        {{range .Members }}
-                        <li>{{ . }}</li>
-                        {{end}}
-                      </ol>
-                    </div>
-                    <h3>Creation date: {{ .CreationDate }}</h3>
-                    <hr class="mt-0 mb-4">
-                    <h3>First Album: {{.FirstAlbum}}</h3>
-                    <hr class="mt-0 mb-4">
+  <body class="vh-150">
+    <div class="container py-5 h-120">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-10 mb-4 mb-lg-0">
+          <div class="group-card-title d-flex align-items-center justify-content-between">
+            <a class="navbar-brand" href="/">
+              <img
+                src="/template/assets/arrow.png"
+                alt="go_back"
+                width="40"
+                height="40"
+                class="d-inline-block align-text-top"
+              />
+            </a>
+            <!-- <h2 class="group_name text-white"></h2> -->
+            <h2 class="group_name display-2 text-white text-center"><strong>{{ .Name }}</strong></h2>
+            <div width="10"></div>
+          </div>
+          <div class="card mb-3 group_card">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white group_logo_parent">
+                <img src="{{ .Image }}"
+                  alt="Avatar" class="img-fluid my-5 group_logo"/>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h3>Members:</h3>
+                  <hr class="mt-0 mb-2">
+                  <div class="row pt-1">
+                    <ol>
+                      {{range .Members }}
+                      <li>{{ . }}</li>
+                      {{end}}
+                    </ol>
+                  </div>
+                  <h3>Creation date: {{ .CreationDate }}</h3>
+                  <hr class="mt-0 mb-4">
+                  <h3>First Album: {{.FirstAlbum}}</h3>
+                  <hr class="mt-0 mb-4">
+                
+                  <h3>Locations:</h3>
+                  <hr class="mt-0 mb-2">
                   
-                    <h3>Locations:</h3>
-                    <hr class="mt-0 mb-2">
-                    
-                    <div class="row pt-1">                    
-                      <ol class="cities">
-                        {{range .Locations}}
-                        <li class="location text-uppercase">{{ . }}</li>
-                        {{end}}
-                      </ol>
-                    </div>
+                  <div class="row pt-1">                    
+                    <ol class="cities">
+                      {{range .Locations}}
+                      <li class="location text-uppercase">{{ . }}</li>
+                      {{end}}
+                    </ol>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- <div id="map" class="map" style="width: 100%; height: 500px;"></div> -->
           </div>
+          <!-- <div id="map" class="map" style="width: 100%; height: 500px;"></div> -->
         </div>
       </div>
-  </body>
+    </div>
+</body>
+</html>
+
 </html>
