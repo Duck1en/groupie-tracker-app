@@ -13,6 +13,7 @@ var (
 	ErrBadRequest  = errors.New("bad request")
 	ErrEmptyInput  = errors.New("no input given")
 	ErrWrongMethod = errors.New("method not allowed")
+	ErrServer      = errors.New("internal server error")
 )
 
 var MainTmpl, ErrTmpl, ArtistTmpl *template.Template

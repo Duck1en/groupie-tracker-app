@@ -21,12 +21,12 @@ func HomePage(page http.ResponseWriter, r *http.Request) {
 	}
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api")
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	responseData, err := ioutil.ReadAll(response.Body)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	var responseObject models.Response
@@ -34,12 +34,12 @@ func HomePage(page http.ResponseWriter, r *http.Request) {
 
 	s, err := http.Get(responseObject.ArtistsUrl)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	d, err := ioutil.ReadAll(s.Body)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	json.Unmarshal(d, &allArtists)
@@ -57,12 +57,12 @@ func ArtistPage(page http.ResponseWriter, r *http.Request) {
 	id := r.FormValue("button")
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api")
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	responseData, err := ioutil.ReadAll(response.Body)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	var responseObject models.Response
@@ -70,13 +70,13 @@ func ArtistPage(page http.ResponseWriter, r *http.Request) {
 
 	artistInfo, err := http.Get(responseObject.ArtistsUrl + "/" + id)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 
 	d, err := ioutil.ReadAll(artistInfo.Body)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	json.Unmarshal(d, &artist)
@@ -90,19 +90,19 @@ func ArtistPage(page http.ResponseWriter, r *http.Request) {
 	}
 	d, err = ioutil.ReadAll(locationsInfo.Body)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	json.Unmarshal(d, &locations)
 
 	datesInfo, err := http.Get(locations.Dates)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	d, err = ioutil.ReadAll(datesInfo.Body)
 	if err != nil {
-		ErrorHandler(page, http.StatusNotFound, ErrNotFound)
+		ErrorHandler(page, http.StatusInternalServerError, ErrServer)
 		return
 	}
 	json.Unmarshal(d, &dates)
