@@ -52,32 +52,32 @@ blockquote {
 
 .group_row {
   justify-content: center;
-  margin: 0 -40px
+  margin: 0 -40px;
 }
 
 .card-parent {
-  width: auto; 
+  width: auto;
   flex: 0 0 auto;
 }
 
 .group_img {
-  height: 322px;
-  width: 322px;
+  height: 310px;
+  width: 310px;
 }
-
 
 /* ARTISTS */
 .group_card {
-  border-radius: .5rem; 
+  border-radius: 0.5rem;
   background-color: #fefefe;
 }
 
 .group_logo {
   width: 100%;
   padding: 35px;
+  border-radius: 20%;
 }
 
 .group_logo_parent {
-  border-top-left-radius: .5rem; 
-  border-bottom-left-radius: .5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
